@@ -22,9 +22,9 @@ levels (penguins$species)
 levels (penguins$island)
 ```
 The dataset 'penguins' contains data from three islands, "Biscoe," "Dream," and "Torgersen." It also contains three penguin species "Adelie," "Chainstrap," and "Gentoo."
-The dataset contains 'r nrow(penguins)' and 'r ncol(penguins)'
+The dataset contains `r nrow(penguins)` and `r ncol(penguins)`
 Important variables include bill length, bill depth, flipper length, and body mass in grams, as well as sex. 
-The mean bill length is 'r mean(penguins$flipper_length_mm, na.rm = TRUE)
+The mean bill length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`
 
 ### Problem 1 Scatterplot
 ```{r}
