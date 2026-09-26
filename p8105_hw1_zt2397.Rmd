@@ -1,0 +1,50 @@
+---
+title: "p8105_hw1_zt2397"
+output: github_document
+date: "2026-09-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Problem 1
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+```{r}
+str (penguins)
+levels (penguins$species)
+levels (penguins$island)
+```
+The dataset 'penguins' contains data from three islands, "Biscoe," "Dream," and "Torgersen." It also contains three penguin species "Adelie," "Chainstrap," and "Gentoo."
+The dataset contains 'r nrow(penguins)' and 'r ncol(penguins)'
+Important variables include bill length, bill depth, flipper length, and body mass in grams, as well as sex. 
+The mean bill length is 'r mean(penguins$flipper_length_mm, na.rm = TRUE)
+
+### Problem 1 Scatterplot
+```{r}
+flipper_bill_scatterplot=
+ggplot(penguins,
+      aes(x = bill_length_mm,
+        y = flipper_length_mm,
+        color = species))+ geom_point() +
+  labs ( # Used this to give labels to the scatterplot
+    title = "Flipper Length vs Bill Length", 
+    x = "Bill Length (mm)",
+    y = "Flipper Length (mm)"
+    )
+
+flipper_bill_scatterplot
+```
+```{r}
+ggsave("flipper_bill_scatterplot.png",
+       plot = flipper_bill_scatterplot)
+```
+
+
+
