@@ -46,5 +46,43 @@ ggsave("flipper_bill_scatterplot.png",
        plot = flipper_bill_scatterplot)
 ```
 
+## Problem 2
 
+```{r}
+random_sample = rnorm (10)
+
+random_sample
+positive = random_sample > 0 
+positive
+
+character_vector = c("apple", "banana", "carrot", "spinach", "salmonn", "quinoa", "almonds", "yogurt", "broccoli", "lentils")
+character_vector
+
+food_group = factor (c ("fruit", "fruit", "vegetable", "vegetable", "protein", "protein", "protein", "protein", "vegetable","protein"))
+food_group
+```
+```{r}
+problem2_p2 = 
+  tibble (
+    random_sample = random_sample,
+    positive = positive,
+    character_vector = character_vector,
+    food_group = food_group
+  )
+problem2_p2
+```
+```{r}
+mean(pull(problem2_p2, random_sample))
+mean(pull(problem2_p2, positive))
+mean(pull(problem2_p2, character_vector))
+mean(pull(problem2_p2, food_group))
+```
+Taking the mean of "random sample" works as expected since it is numeric data, and taking the mean of "positive also works since it treats categorical data as 0 or 1. However, character vector has no numeric meaning as it is text, and for "food groups" it is stored internally.
+```{r}
+as.numeric (positive)
+as.numeric (character_vector)
+as.numeric (food_group)
+```
+
+Applying "as.numeric" converts all of the values to numeric values, such as the fruits, vegetables, and protein are assigned 1,2, and 3. This helps explain why mean fails on charcater vector as these values do not represent any meaningful numbers, so averaging creates non-meaningful results. 
 
